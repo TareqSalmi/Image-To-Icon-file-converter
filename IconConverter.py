@@ -40,18 +40,24 @@ class ConverterApp(QMainWindow):
         self.setGeometry(100, 100, 400, 300)
 
         self.central_widget = QWidget()
+        self.central_widget.setStyleSheet("background-color: black")
         self.setCentralWidget(self.central_widget)
 
         self.convert_button = QPushButton("Convert Image")
+        self.convert_button.setStyleSheet("background-color: #06ff3b; color: black ; border: 4px #F9F901; border-radius: 16px; font-family: Terminal")
         self.convert_button.clicked.connect(self.convertImages)
 
         self.icon_button = QPushButton("Select Icon")
-        self.icon_button.clicked.connect(self.selectIcon)  # Connect icon selection
+        self.icon_button.setStyleSheet("background-color: #06ff3b; color: black ; border: 4px #F9F901 ; border-radius: 10px; font-family: Terminal")
+        self.icon_button.clicked.connect(self.selectIcon)
 
         self.progress_bar = QProgressBar(self)
+        self.progress_bar.setStyleSheet("QProgressBar {background-colour: #06ff3b; color: white; border: 4px white; border-radius: 10px;}"
+                                        "QProgressBar:: chunk {background-colour:#6002EE; border-radius: 10px;}")
         self.progress_bar.setValue(0)
 
         self.status_box = QTextEdit(self)
+        self.status_box.setStyleSheet("background-color: black; color: #06ff3b; font-family: Terminal;")
         self.status_box.setReadOnly(True)
 
         vbox = QVBoxLayout()
